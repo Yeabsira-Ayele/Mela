@@ -11,6 +11,8 @@
     "name": "What should we call you?",
     "location": "Where are you looking for work?",
     "skills": "Which skills or types of work interest you?",
+    "education": "What is your education level and field of study?",
+    "workHistory": "Tell us about your work history.",
     "accessNeeds": "What access needs or workplace accommodations are important to you?",
     "shareDisability": "May we share your access needs with employers to help find suitable accommodations?",
     "review": "Review your answers before continuing."
@@ -19,6 +21,8 @@
     "name": "Your name is optional.",
     "location": "Choose the city where you would like to work.",
     "skills": "Select all that apply.",
+    "education": "Choose your highest completed level. Your field of study is optional.",
+    "workHistory": "This question is optional. You can continue without adding work history.",
     "accessNeeds": "This is optional. Choose only what you want to tell us.",
     "shareDisability": "Your choice is optional and can be changed at any time."
   },
@@ -37,6 +41,15 @@
     "no": "No",
     "close": "Close"
   },
+  "fields": {
+    "otherSkill": "Other skill or type of work (optional)",
+    "educationLevel": "Highest education level completed",
+    "fieldOfStudy": "Field of study (optional)",
+    "role": "Role or job title",
+    "organization": "Organization",
+    "years": "Years of experience",
+    "selectOption": "Select an option"
+  },
   "progress": "Question {n} of {total}",
   "errors": {
     "required": "Please answer this question to continue.",
@@ -44,6 +57,7 @@
     "load": "Your saved information could not be loaded.",
     "save": "Your information could not be saved on this device.",
     "clear": "Some saved information could not be removed.",
+    "jobs": "Jobs could not be loaded. Check your connection and try again.",
     "generic": "Something went wrong. Please try again."
   },
   "status": {
@@ -108,15 +122,29 @@
     },
     "workModes": {
       "TELECOMMUTE": "Remote"
+    },
+    "educationLevels": {
+      "none": "No formal education",
+      "primary": "Primary school",
+      "secondary": "Secondary school",
+      "certificate": "Certificate",
+      "diploma": "Diploma",
+      "bachelor": "Bachelor's degree",
+      "postgraduate": "Postgraduate degree"
     }
   },
+  "results": {
+    "title": "Jobs that may fit you",
+    "empty": "No matching jobs were found. You can go back and change your answers.",
+    "score": "Match: {score}%"
+  },
   "matching": {
-    "skills_match": "{matched} of {total} relevant skills match",
+    "skills_match": "Matching skills: {matched} (out of {total} listed)",
     "skills_none": "No matching skills yet ({total} skills listed)",
     "location_remote": "This job is remote",
     "location_match": "This job is in {city}",
     "location_other": "This job is in {city}",
-    "accommodation_match": "{matched} of {total} requested accommodations are offered",
+    "accommodation_match": "Available accommodations: {matched} (out of {total} requested)",
     "accommodation_none": "None of the {total} requested accommodations are listed"
   }
 }
