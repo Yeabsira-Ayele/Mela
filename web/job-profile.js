@@ -1,7 +1,9 @@
 import { matchJobs } from "./matching.js";
 import { getLanguage, t } from "./i18n.js";
 import { questions } from "./questions.js";
-import { loadProfile, saveProfile } from "./storage.js";
+import { loadPrefs, loadProfile, savePrefs, saveProfile } from "./storage.js";
+
+let nextInstanceId = 0;
 
 function text(value) {
   return typeof value === "string" ? value : "";
@@ -104,14 +106,105 @@ function mountJobProfile(root) {
   const document = root.ownerDocument;
   const savedProfile = loadProfile();
   const profile = normalizeProfile(savedProfile);
+  const loadedPrefs = loadPrefs();
+  const savedPrefs = loadedPrefs && typeof loadedPrefs === "object" && !Array.isArray(loadedPrefs)
+    ? loadedPrefs
+    : {};
+  const preferences = {
+    ...savedPrefs,
+    textSize: ["small", "medium", "large"].includes(savedPrefs.textSize) ? savedPrefs.textSize : "medium",
+    highContrast: savedPrefs.highContrast === true
+  };
+  const instanceId = `job-profile-${++nextInstanceId}`;
+  const screen = createElement(document, "div", undefined, "job-profile-screen");
+  const statusRegion = createElement(document, "p", "", "job-profile-live job-profile-status");
+  statusRegion.setAttribute("role", "status");
+  statusRegion.setAttribute("aria-live", "polite");
+  statusRegion.setAttribute("aria-atomic", "true");
+  const errorRegion = createElement(document, "p", "", "job-profile-live job-profile-error");
+  errorRegion.setAttribute("role", "alert");
+  errorRegion.setAttribute("aria-live", "assertive");
+  errorRegion.setAttribute("aria-atomic", "true");
+  root.classList.add("job-profile");
+  root.replaceChildren();
+  root.append(statusRegion, errorRegion, screen, createPreferencesPanel());
   let questionIndex = firstUnansweredQuestion(profile);
 
+  function setStatus(key, params) {
+    statusRegion.textContent = key ? t(key, params) : "";
+  }
+
+  function setError(key) {
+    errorRegion.textContent = key ? t(key) : "";
+  }
+
+  function applyPreferences() {
+    root.dataset.textSize = preferences.textSize;
+    root.dataset.highContrast = String(preferences.highContrast);
+  }
+
+  function persistPreferences() {
+    applyPreferences();
+    if (savePrefs(preferences)) {
+      setError(null);
+    } else {
+      setError("errors.preferencesSave");
+    }
+  }
+
+  function createPreferencesPanel() {
+    const panel = createElement(document, "section", undefined, "job-profile-preferences");
+    const heading = createElement(document, "h2", t("preferences.title"));
+    panel.append(heading);
+
+    const sizeGroup = document.createElement("fieldset");
+    sizeGroup.append(createElement(document, "legend", t("preferences.textSize")));
+    for (const size of ["small", "medium", "large"]) {
+      const id = `${instanceId}-text-size-${size}`;
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = `${instanceId}-text-size`;
+      input.id = id;
+      input.value = size;
+      input.checked = preferences.textSize === size;
+      input.addEventListener("change", () => {
+        preferences.textSize = size;
+        persistPreferences();
+      });
+      const label = createElement(document, "label");
+      label.htmlFor = id;
+      label.append(input, document.createTextNode(t(`preferences.textSizeOptions.${size}`)));
+      sizeGroup.append(label);
+    }
+    panel.append(sizeGroup);
+
+    const contrastLabel = createElement(document, "label");
+    const contrast = document.createElement("input");
+    contrast.type = "checkbox";
+    contrast.id = `${instanceId}-high-contrast`;
+    contrast.checked = preferences.highContrast;
+    contrast.addEventListener("change", () => {
+      preferences.highContrast = contrast.checked;
+      persistPreferences();
+    });
+    contrastLabel.htmlFor = contrast.id;
+    contrastLabel.append(contrast, document.createTextNode(t("preferences.highContrast")));
+    panel.append(contrastLabel);
+    applyPreferences();
+    return panel;
+  }
+
   function renderField(question, field, parent) {
+    const id = `${instanceId}-${question.id}-${field.name}`;
     const label = createElement(document, "label", t(field.labelKey));
+    label.htmlFor = id;
     let control;
     if (field.type === "select") {
       control = document.createElement("select");
+      control.id = id;
       control.name = `${question.id}.${field.name}`;
+      control.required = field.required === true;
+      control.setAttribute("aria-describedby", `${instanceId}-${question.id}-hint`);
       const emptyOption = document.createElement("option");
       emptyOption.value = "";
       emptyOption.textContent = t("fields.selectOption");
@@ -128,8 +221,12 @@ function mountJobProfile(root) {
     } else {
       control = document.createElement("input");
       control.type = field.type;
+      control.id = id;
       control.name = `${question.id}.${field.name}`;
-      control.value = profile.workHistory[field.name];
+      control.setAttribute("aria-describedby", `${instanceId}-${question.id}-hint`);
+      control.value = question.id === "education"
+        ? profile.education[field.name]
+        : profile.workHistory[field.name];
       if (field.type === "number") {
         control.min = "0";
         control.step = "1";
@@ -139,9 +236,9 @@ function mountJobProfile(root) {
     parent.append(label);
   }
 
-  function renderQuestion(messageKey) {
+  function renderQuestion({ errorKey = null, statusKey = null } = {}) {
     const question = questions[questionIndex];
-    root.replaceChildren();
+    screen.replaceChildren();
 
     const progress = createElement(
       document,
@@ -149,37 +246,57 @@ function mountJobProfile(root) {
       t("progress", { n: questionIndex + 1, total: questions.length }),
       "job-profile-progress"
     );
-    root.append(progress);
-    root.append(createElement(document, "h1", t(question.titleKey)));
-    root.append(createElement(document, "p", t(question.helpKey)));
+    screen.append(progress);
+    const heading = createElement(document, "h1", t(question.titleKey));
+    heading.tabIndex = -1;
+    screen.append(heading);
+    const hint = createElement(document, "p", t(question.helpKey));
+    hint.id = `${instanceId}-${question.id}-hint`;
+    screen.append(hint);
 
     const form = document.createElement("form");
     form.noValidate = true;
     if (question.type === "checklist") {
       const fieldset = document.createElement("fieldset");
+      fieldset.className = "job-profile-skills";
+      fieldset.setAttribute("aria-describedby", hint.id);
       fieldset.append(createElement(document, "legend", t(question.titleKey)));
       for (const id of question.options) {
+        const inputId = `${instanceId}-skill-${id}`;
         const label = createElement(document, "label");
+        label.htmlFor = inputId;
         const input = document.createElement("input");
         input.type = "checkbox";
+        input.id = inputId;
         input.name = "skill";
         input.value = id;
         input.checked = profile.skills.includes(id);
+        input.setAttribute("aria-describedby", hint.id);
         label.append(input, document.createTextNode(optionLabel(question.optionsKey, id)));
         fieldset.append(label);
       }
       form.append(fieldset);
       const other = document.createElement("input");
       other.type = "text";
+      other.id = `${instanceId}-${question.freeText.name}`;
       other.name = question.freeText.name;
+      other.setAttribute("aria-describedby", hint.id);
       other.value = profile[question.freeText.name];
       const otherLabel = createElement(document, "label", t(question.freeText.labelKey));
+      otherLabel.htmlFor = other.id;
       otherLabel.append(other);
       form.append(otherLabel);
     } else if (question.type === "select") {
       renderField(
         question,
-        { name: question.field, type: "select", labelKey: question.titleKey, optionsKey: question.optionsKey, options: question.options },
+        {
+          name: question.field,
+          type: "select",
+          labelKey: question.titleKey,
+          optionsKey: question.optionsKey,
+          options: question.options,
+          required: true
+        },
         form
       );
     } else {
@@ -188,9 +305,6 @@ function mountJobProfile(root) {
       }
     }
 
-    const message = createElement(document, "p", messageKey ? t(messageKey) : "", "job-profile-message");
-    message.setAttribute("role", messageKey === "errors.required" ? "alert" : "status");
-    form.append(message);
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       advance();
@@ -210,25 +324,28 @@ function mountJobProfile(root) {
     next.type = "submit";
     next.textContent = t("buttons.next");
     form.append(back, next);
-    root.append(form);
+    screen.append(form);
+    setStatus(statusKey);
+    setError(errorKey);
+    heading.focus();
   }
 
   function readQuestionInputs(question) {
     if (question.id === "skills") {
-      profile.skills = Array.from(root.querySelectorAll('input[name="skill"]:checked'), (input) => input.value);
-      profile.otherSkill = text(root.querySelector('input[name="otherSkill"]').value).trim();
+      profile.skills = Array.from(screen.querySelectorAll('input[name="skill"]:checked'), (input) => input.value);
+      profile.otherSkill = text(screen.querySelector('input[name="otherSkill"]').value).trim();
     } else if (question.id === "location") {
-      profile.location = root.querySelector('select[name="location.location"]').value;
+      profile.location = screen.querySelector('select[name="location.location"]').value;
     } else if (question.id === "education") {
       profile.education = {
-        level: root.querySelector('select[name="education.level"]').value,
-        field: root.querySelector('input[name="education.field"]').value.trim()
+        level: screen.querySelector('select[name="education.level"]').value,
+        field: screen.querySelector('input[name="education.field"]').value.trim()
       };
     } else if (question.id === "workHistory") {
       profile.workHistory = {
-        role: root.querySelector('input[name="workHistory.role"]').value.trim(),
-        organization: root.querySelector('input[name="workHistory.organization"]').value.trim(),
-        years: root.querySelector('input[name="workHistory.years"]').value
+        role: screen.querySelector('input[name="workHistory.role"]').value.trim(),
+        organization: screen.querySelector('input[name="workHistory.organization"]').value.trim(),
+        years: screen.querySelector('input[name="workHistory.years"]').value
       };
       profile.workHistorySkipped = !Object.values(profile.workHistory).some(Boolean);
     }
@@ -246,16 +363,12 @@ function mountJobProfile(root) {
   }
 
   async function renderResults(saveFailed = false) {
-    root.replaceChildren();
-    root.append(createElement(document, "h1", t("results.title")));
-    if (saveFailed) {
-      const saveMessage = createElement(document, "p", t("errors.save"), "job-profile-message");
-      saveMessage.setAttribute("role", "alert");
-      root.append(saveMessage);
-    }
-    const message = createElement(document, "p", t("status.loading"), "job-profile-message");
-    message.setAttribute("role", "status");
-    root.append(message);
+    screen.replaceChildren();
+    const heading = createElement(document, "h1", t("results.title"));
+    heading.tabIndex = -1;
+    screen.append(heading);
+    setStatus("status.loadingJobs");
+    setError(saveFailed ? "errors.save" : null);
 
     const back = document.createElement("button");
     back.type = "button";
@@ -264,14 +377,15 @@ function mountJobProfile(root) {
       questionIndex = questions.length - 1;
       renderQuestion();
     });
-    root.append(back);
+    screen.append(back);
+    heading.focus();
 
     try {
       const jobs = await loadJobs(root);
       const matches = matchJobs(profile, jobs);
-      message.remove();
+      setStatus("status.jobsFound", { total: matches.length });
       if (matches.length === 0) {
-        root.append(createElement(document, "p", t("results.empty")));
+        screen.append(createElement(document, "p", t("results.empty")));
         return;
       }
 
@@ -288,15 +402,16 @@ function mountJobProfile(root) {
         item.append(reasons);
         list.append(item);
       }
-      root.append(list);
+      screen.append(list);
     } catch (error) {
       console.error("Unable to load or display matching jobs.", error);
-      message.textContent = t("errors.jobs");
+      setStatus(null);
+      setError("errors.jobs");
       const retry = document.createElement("button");
       retry.type = "button";
       retry.textContent = t("buttons.retry");
       retry.addEventListener("click", () => renderResults());
-      root.append(retry);
+      screen.append(retry);
     }
   }
 
@@ -304,14 +419,22 @@ function mountJobProfile(root) {
     const question = questions[questionIndex];
     readQuestionInputs(question);
     if (!question.skippable && !isQuestionAnswered(question, profile)) {
-      renderQuestion("errors.required");
+      const errorKey = {
+        skills: "errors.skillsRequired",
+        location: "errors.locationRequired",
+        education: "errors.educationRequired"
+      }[question.id] || "errors.required";
+      renderQuestion({ errorKey });
       return;
     }
 
     const saved = saveProfile(profile);
     questionIndex += 1;
     if (questionIndex < questions.length) {
-      renderQuestion(saved ? undefined : "errors.save");
+      renderQuestion({
+        statusKey: saved ? "status.saved" : null,
+        errorKey: saved ? null : "errors.save"
+      });
       return;
     }
 

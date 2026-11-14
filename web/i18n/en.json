@@ -50,9 +50,23 @@
     "years": "Years of experience",
     "selectOption": "Select an option"
   },
+  "preferences": {
+    "title": "Display settings",
+    "textSize": "Text size",
+    "textSizeOptions": {
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large"
+    },
+    "highContrast": "High contrast"
+  },
   "progress": "Question {n} of {total}",
   "errors": {
     "required": "Please answer this question to continue.",
+    "skillsRequired": "Please choose at least one skill or enter another skill.",
+    "locationRequired": "Please choose a city.",
+    "educationRequired": "Please choose your highest completed education level.",
+    "preferencesSave": "Display settings could not be saved on this device.",
     "invalid": "Please check your answer and try again.",
     "load": "Your saved information could not be loaded.",
     "save": "Your information could not be saved on this device.",
@@ -63,10 +77,12 @@
   "status": {
     "ready": "Ready",
     "loading": "Loading your information…",
+    "loadingJobs": "Loading matching jobs…",
     "saved": "Your information has been saved on this device.",
     "loaded": "Your saved information has been loaded.",
     "cleared": "Your saved information has been cleared.",
-    "offline": "You are offline. Your information stays on this device and will be available when you return."
+    "offline": "You are offline. Your information stays on this device and will be available when you return.",
+    "jobsFound": "Found {total} matching jobs."
   },
   "offline": {
     "message": "You are offline. You can continue using information saved on this device."
