@@ -2,6 +2,7 @@ import { matchJobs } from "./matching.js";
 import { getLanguage, t } from "./i18n.js";
 import { questions } from "./questions.js";
 import { loadPrefs, loadProfile, savePrefs, saveProfile } from "./storage.js";
+import { mountCVExport } from "./cv.js";
 
 let nextInstanceId = 0;
 
@@ -386,6 +387,7 @@ function mountJobProfile(root) {
       setStatus("status.jobsFound", { total: matches.length });
       if (matches.length === 0) {
         screen.append(createElement(document, "p", t("results.empty")));
+        mountCVExport(screen, profile, { statusRegion, errorRegion });
         return;
       }
 
@@ -403,6 +405,7 @@ function mountJobProfile(root) {
         list.append(item);
       }
       screen.append(list);
+      mountCVExport(screen, profile, { statusRegion, errorRegion });
     } catch (error) {
       console.error("Unable to load or display matching jobs.", error);
       setStatus(null);
@@ -412,6 +415,7 @@ function mountJobProfile(root) {
       retry.textContent = t("buttons.retry");
       retry.addEventListener("click", () => renderResults());
       screen.append(retry);
+      mountCVExport(screen, profile, { statusRegion, errorRegion });
     }
   }
 
