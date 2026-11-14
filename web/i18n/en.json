@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "Find work that fits you",
+    "description": "Tell us about your skills and preferences to find suitable jobs."
+  },
+  "language": {
+    "en": "English",
+    "am": "Amharic"
+  },
+  "questions": {
+    "name": "What should we call you?",
+    "location": "Where are you looking for work?",
+    "skills": "Which skills or types of work interest you?",
+    "accessNeeds": "What access needs or workplace accommodations are important to you?",
+    "shareDisability": "May we share your access needs with employers to help find suitable accommodations?",
+    "review": "Review your answers before continuing."
+  },
+  "hints": {
+    "name": "Your name is optional.",
+    "location": "Choose the city where you would like to work.",
+    "skills": "Select all that apply.",
+    "accessNeeds": "This is optional. Choose only what you want to tell us.",
+    "shareDisability": "Your choice is optional and can be changed at any time."
+  },
+  "buttons": {
+    "next": "Next",
+    "back": "Back",
+    "continue": "Continue",
+    "save": "Save",
+    "saveAndContinue": "Save and continue",
+    "clear": "Clear all data",
+    "edit": "Edit answers",
+    "skip": "Skip",
+    "finish": "Finish",
+    "retry": "Try again",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close"
+  },
+  "progress": "Question {n} of {total}",
+  "errors": {
+    "required": "Please answer this question to continue.",
+    "invalid": "Please check your answer and try again.",
+    "load": "Your saved information could not be loaded.",
+    "save": "Your information could not be saved on this device.",
+    "clear": "Some saved information could not be removed.",
+    "generic": "Something went wrong. Please try again."
+  },
+  "status": {
+    "ready": "Ready",
+    "loading": "Loading your information…",
+    "saved": "Your information has been saved on this device.",
+    "loaded": "Your saved information has been loaded.",
+    "cleared": "Your saved information has been cleared.",
+    "offline": "You are offline. Your information stays on this device and will be available when you return."
+  },
+  "offline": {
+    "message": "You are offline. You can continue using information saved on this device."
+  },
+  "accessNeeds": {
+    "title": "Access needs and accommodations",
+    "description": "Sharing access needs is optional. Your choices are stored on this device. They are shared with employers only if you choose to share them.",
+    "privacy": "You can skip this section or change your choices later.",
+    "none": "I do not want to share any access needs"
+  },
+  "lists": {
+    "locations": {
+      "addis-ababa": "Addis Ababa",
+      "adama": "Adama",
+      "bahir-dar": "Bahir Dar",
+      "hawassa": "Hawassa",
+      "mekelle": "Mekelle",
+      "dire-dawa": "Dire Dawa"
+    },
+    "skills": {
+      "customer-service": "Customer service",
+      "communication": "Communication",
+      "phone-support": "Phone support",
+      "typing": "Typing",
+      "data-entry": "Data entry",
+      "computer-basics": "Basic computer skills",
+      "translation": "Translation",
+      "writing": "Writing",
+      "teaching": "Teaching",
+      "administration": "Administration",
+      "bookkeeping": "Bookkeeping",
+      "sewing-crafts": "Sewing and crafts",
+      "sales": "Sales",
+      "web-development": "Web development",
+      "graphic-design": "Graphic design"
+    },
+    "accommodations": {
+      "screen-reader-friendly": "Screen-reader-friendly tools",
+      "flexible-hours": "Flexible hours",
+      "written-instructions": "Written instructions",
+      "step-free-access": "Step-free access",
+      "remote": "Remote work",
+      "sign-language": "Sign-language support",
+      "assistive-tech-provided": "Assistive technology provided",
+      "quiet-workspace": "Quiet workspace"
+    },
+    "employmentTypes": {
+      "FULL_TIME": "Full-time",
+      "PART_TIME": "Part-time",
+      "CONTRACTOR": "Contract",
+      "TEMPORARY": "Temporary",
+      "INTERN": "Internship"
+    },
+    "workModes": {
+      "TELECOMMUTE": "Remote"
+    }
+  },
+  "matching": {
+    "skills_match": "{matched} of {total} relevant skills match",
+    "skills_none": "No matching skills yet ({total} skills listed)",
+    "location_remote": "This job is remote",
+    "location_match": "This job is in {city}",
+    "location_other": "This job is in {city}",
+    "accommodation_match": "{matched} of {total} requested accommodations are offered",
+    "accommodation_none": "None of the {total} requested accommodations are listed"
+  }
+}

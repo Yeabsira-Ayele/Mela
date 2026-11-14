@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "ለእርስዎ የሚስማማ ሥራ ያግኙ",
+    "description": "ተስማሚ ሥራዎችን ለማግኘት ስለ ችሎታዎና ምርጫዎችዎ ይንገሩን።"
+  },
+  "language": {
+    "en": "እንግሊዝኛ",
+    "am": "አማርኛ"
+  },
+  "questions": {
+    "name": "ምን ብለን እንጥራዎት?",
+    "location": "የት አካባቢ ሥራ ይፈልጋሉ?",
+    "skills": "የትኞቹ ችሎታዎች ወይም የሥራ ዓይነቶች ይስቡዎታል?",
+    "accessNeeds": "ለእርስዎ አስፈላጊ የሆኑ የተደራሽነት ፍላጎቶች ወይም የሥራ ቦታ ድጋፎች ምንድናቸው?",
+    "shareDisability": "ተስማሚ የሥራ ቦታ ድጋፍ እንዲያገኙ የተደራሽነት ፍላጎቶችዎን ለአሠሪዎች እናካፍል?",
+    "review": "ከመቀጠልዎ በፊት ያስገቡትን መረጃ ይገምግሙ።"
+  },
+  "hints": {
+    "name": "ስምዎን መስጠት አማራጭ ነው።",
+    "location": "መሥራት የሚፈልጉበትን ከተማ ይምረጡ።",
+    "skills": "የሚመለከቱዎትን ሁሉ ይምረጡ።",
+    "accessNeeds": "ይህ አማራጭ ነው። ማካፈል የሚፈልጉትን ብቻ ይምረጡ።",
+    "shareDisability": "ይህ አማራጭ ነው፤ ምርጫዎንም በማንኛውም ጊዜ መቀየር ይችላሉ።"
+  },
+  "buttons": {
+    "next": "ቀጣይ",
+    "back": "ተመለስ",
+    "continue": "ቀጥል",
+    "save": "አስቀምጥ",
+    "saveAndContinue": "አስቀምጥና ቀጥል",
+    "clear": "ሁሉንም ውሂብ አጽዳ",
+    "edit": "መልሶችን አስተካክል",
+    "skip": "ዝለል",
+    "finish": "ጨርስ",
+    "retry": "እንደገና ሞክር",
+    "yes": "አዎ",
+    "no": "አይ",
+    "close": "ዝጋ"
+  },
+  "progress": "ጥያቄ {n} ከ {total}",
+  "errors": {
+    "required": "ለመቀጠል እባክዎ ለዚህ ጥያቄ ይመልሱ።",
+    "invalid": "እባክዎ መልስዎን ያረጋግጡና እንደገና ይሞክሩ።",
+    "load": "የተቀመጠውን መረጃ መጫን አልተቻለም።",
+    "save": "መረጃዎን በዚህ መሣሪያ ላይ ማስቀመጥ አልተቻለም።",
+    "clear": "የተቀመጠውን መረጃ በሙሉ ማስወገድ አልተቻለም።",
+    "generic": "ችግር ተፈጥሯል። እባክዎ እንደገና ይሞክሩ።"
+  },
+  "status": {
+    "ready": "ዝግጁ",
+    "loading": "መረጃዎ በመጫን ላይ…",
+    "saved": "መረጃዎ በዚህ መሣሪያ ላይ ተቀምጧል።",
+    "loaded": "የተቀመጠው መረጃዎ ተጭኗል።",
+    "cleared": "የተቀመጠው መረጃዎ ተጠርጓል።",
+    "offline": "ከመስመር ውጭ ነዎት። መረጃዎ በዚህ መሣሪያ ላይ ይቆያል፤ ሲመለሱም ይኖራል።"
+  },
+  "offline": {
+    "message": "ከመስመር ውጭ ነዎት። በዚህ መሣሪያ ላይ የተቀመጠ መረጃን መጠቀም ይችላሉ።"
+  },
+  "accessNeeds": {
+    "title": "የተደራሽነት ፍላጎቶችና ድጋፎች",
+    "description": "የተደራሽነት ፍላጎቶችን ማካፈል አማራጭ ነው። ምርጫዎችዎ በዚህ መሣሪያ ላይ ይቀመጣሉ። እርስዎ ለማካፈል ከመረጡ ብቻ ለአሠሪዎች ይላካሉ።",
+    "privacy": "ይህን ክፍል መዝለል ወይም ምርጫዎችዎን በኋላ መቀየር ይችላሉ።",
+    "none": "ምንም የተደራሽነት ፍላጎት ማካፈል አልፈልግም"
+  },
+  "lists": {
+    "locations": {
+      "addis-ababa": "አዲስ አበባ",
+      "adama": "አዳማ",
+      "bahir-dar": "ባህር ዳር",
+      "hawassa": "ሐዋሳ",
+      "mekelle": "መቀሌ",
+      "dire-dawa": "ድሬዳዋ"
+    },
+    "skills": {
+      "customer-service": "የደንበኞች አገልግሎት",
+      "communication": "ግንኙነት",
+      "phone-support": "የስልክ ድጋፍ",
+      "typing": "መተየብ",
+      "data-entry": "ዳታ ማስገባት",
+      "computer-basics": "መሠረታዊ የኮምፒውተር ክህሎት",
+      "translation": "ትርጉም",
+      "writing": "ጽሕፈት",
+      "teaching": "ማስተማር",
+      "administration": "አስተዳደር",
+      "bookkeeping": "የሂሳብ መዝገብ አያያዝ",
+      "sewing-crafts": "ስፌትና የእጅ ሥራ",
+      "sales": "ሽያጭ",
+      "web-development": "የድር ጣቢያ ልማት",
+      "graphic-design": "ግራፊክ ዲዛይን"
+    },
+    "accommodations": {
+      "screen-reader-friendly": "ከስክሪን አንባቢ ጋር የሚሠሩ መሣሪያዎች",
+      "flexible-hours": "ተለዋዋጭ የሥራ ሰዓት",
+      "written-instructions": "በጽሑፍ የተሰጡ መመሪያዎች",
+      "step-free-access": "ደረጃ የሌለው መግቢያ",
+      "remote": "ከርቀት መሥራት",
+      "sign-language": "የምልክት ቋንቋ ድጋፍ",
+      "assistive-tech-provided": "ረዳት ቴክኖሎጂ ይቀርባል",
+      "quiet-workspace": "ጸጥ ያለ የሥራ ቦታ"
+    },
+    "employmentTypes": {
+      "FULL_TIME": "የሙሉ ጊዜ",
+      "PART_TIME": "የትርፍ ሰዓት",
+      "CONTRACTOR": "በውል",
+      "TEMPORARY": "ጊዜያዊ",
+      "INTERN": "የሥልጠና ሥራ"
+    },
+    "workModes": {
+      "TELECOMMUTE": "ከርቀት"
+    }
+  },
+  "matching": {
+    "skills_match": "ከ {total} ተዛማጅ ችሎታዎች {matched} ይዛመዳሉ",
+    "skills_none": "እስካሁን የሚዛመድ ችሎታ የለም ({total} ችሎታ ተዘርዝሯል)",
+    "location_remote": "ይህ ሥራ ከርቀት ነው",
+    "location_match": "ይህ ሥራ በ{city} ነው",
+    "location_other": "ይህ ሥራ በ{city} ነው",
+    "accommodation_match": "ከ {total} የተጠየቁ ድጋፎች {matched} ይቀርባሉ",
+    "accommodation_none": "ከ {total} የተጠየቁ ድጋፎች አንዳቸውም አልተዘረዘሩም"
+  }
+}
