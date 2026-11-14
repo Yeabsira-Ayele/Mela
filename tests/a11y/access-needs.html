@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Access needs accessibility fixture</title>
+    <link rel="stylesheet" href="/web/styles.css">
+  </head>
+  <body>
+    <main class="job-profile" data-text-size="medium" data-high-contrast="false">
+      <section class="job-profile-screen">
+        <p>Optional information</p>
+        <h1>Access needs and accommodations</h1>
+        <p id="access-needs-help">Choose any workplace accommodations that are important to you. You can skip this section.</p>
+        <form>
+          <fieldset aria-describedby="access-needs-help">
+            <legend>Which accommodations would help you at work?</legend>
+            <label><input type="checkbox" name="access-needs" value="screen-reader-friendly"> Screen-reader-friendly tools</label>
+            <label><input type="checkbox" name="access-needs" value="flexible-hours"> Flexible hours</label>
+            <label><input type="checkbox" name="access-needs" value="written-instructions"> Written instructions</label>
+            <label><input type="checkbox" name="access-needs" value="step-free-access"> Step-free access</label>
+            <label><input type="checkbox" name="access-needs" value="remote"> Remote work</label>
+            <label><input type="checkbox" name="access-needs" value="sign-language"> Sign-language support</label>
+            <label><input type="checkbox" name="access-needs" value="assistive-tech-provided"> Assistive technology provided</label>
+            <label><input type="checkbox" name="access-needs" value="quiet-workspace"> Quiet workspace</label>
+          </fieldset>
+          <button type="button">Back</button>
+          <button type="button">Continue</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

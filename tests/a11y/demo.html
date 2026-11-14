@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mela job profile accessibility demo</title>
+    <link rel="stylesheet" href="/web/styles.css">
+  </head>
+  <body>
+    <main id="job-profile"></main>
+    <script type="module">
+      import { mountJobProfile } from "/web/job-profile.js";
+
+      mountJobProfile(document.querySelector("#job-profile"));
+    </script>
+  </body>
+</html>
