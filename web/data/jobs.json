@@ -1,0 +1,286 @@
+[
+  {
+    "@type": "JobPosting",
+    "identifier": "job-001",
+    "title": {
+      "en": "Customer Support Assistant",
+      "am": "የደንበኞች ድጋፍ ረዳት"
+    },
+    "description": {
+      "en": "Answer customer questions by phone and message, record requests, and refer complex issues to the team.",
+      "am": "በስልክና በመልዕክት የደንበኞችን ጥያቄዎች ይመልሱ፣ ጥያቄዎችን ይመዝግቡ፣ ከባድ ጉዳዮችንም ለቡድኑ ያስተላልፉ።"
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Selam Connect Services"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "addis-ababa",
+        "addressCountry": "ET"
+      }
+    },
+    "jobLocationType": null,
+    "skills": ["customer-service", "communication", "phone-support", "typing"],
+    "employmentType": "FULL_TIME",
+    "datePosted": "2026-11-10",
+    "validThrough": "2026-12-31",
+    "accommodations": ["screen-reader-friendly", "flexible-hours", "written-instructions"]
+  },
+  {
+    "@type": "JobPosting",
+    "identifier": "job-002",
+    "title": {
+      "en": "Part-Time Data Entry Clerk",
+      "am": "የትርፍ ሰዓት ዳታ ማስገቢያ ሠራተኛ"
+    },
+    "description": {
+      "en": "Enter stock and delivery details into spreadsheets, check records for accuracy, and organize digital files.",
+      "am": "የእቃና የማድረስ መረጃዎችን በሰንጠረዦች ውስጥ ያስገቡ፣ መዝገቦችን ለትክክለኛነት ይፈትሹ፣ ዲጂታል ፋይሎችንም ያደራጁ።"
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Oromia Supply Cooperative"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "adama",
+        "addressCountry": "ET"
+      }
+    },
+    "jobLocationType": null,
+    "skills": ["data-entry", "typing", "computer-basics", "communication"],
+    "employmentType": "PART_TIME",
+    "datePosted": "2026-11-09",
+    "validThrough": "2026-12-20",
+    "accommodations": ["step-free-access", "flexible-hours", "written-instructions"]
+  },
+  {
+    "@type": "JobPosting",
+    "identifier": "job-003",
+    "title": {
+      "en": "Amharic-English Translator",
+      "am": "የአማርኛና የእንግሊዝኛ ተርጓሚ"
+    },
+    "description": {
+      "en": "Translate short community notices and customer information between Amharic and English, and proofread translated text.",
+      "am": "አጫጭር የማኅበረሰብ ማስታወቂያዎችንና የደንበኛ መረጃዎችን ከአማርኛ ወደ እንግሊዝኛና ከእንግሊዝኛ ወደ አማርኛ ይተርጉሙ፣ የተተረጎመውንም ጽሑፍ ያርሙ።"
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Bridge Words Ethiopia"
+    },
+    "jobLocationType": "TELECOMMUTE",
+    "skills": ["translation", "writing", "communication", "computer-basics"],
+    "employmentType": "CONTRACTOR",
+    "datePosted": "2026-11-08",
+    "validThrough": "2026-12-28",
+    "accommodations": ["remote", "flexible-hours", "written-instructions", "quiet-workspace"]
+  },
+  {
+    "@type": "JobPosting",
+    "identifier": "job-004",
+    "title": {
+      "en": "Primary Learning Support Teacher",
+      "am": "የአንደኛ ደረጃ ትምህርት ድጋፍ መምህር"
+    },
+    "description": {
+      "en": "Prepare simple reading and numeracy activities, support small groups of learners, and keep clear progress notes.",
+      "am": "ቀላል የንባብና የቁጥር ተግባራትን ያዘጋጁ፣ አነስተኛ የተማሪ ቡድኖችን ይደግፉ፣ ግልጽ የእድገት ማስታወሻዎችንም ይያዙ።"
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Blue Nile Community School"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "bahir-dar",
+        "addressCountry": "ET"
+      }
+    },
+    "jobLocationType": null,
+    "skills": ["teaching", "communication", "writing", "administration"],
+    "employmentType": "FULL_TIME",
+    "datePosted": "2026-11-07",
+    "validThrough": "2026-12-15",
+    "accommodations": ["step-free-access", "sign-language", "written-instructions"]
+  },
+  {
+    "@type": "JobPosting",
+    "identifier": "job-005",
+    "title": {
+      "en": "Junior Bookkeeping Assistant",
+      "am": "ጀማሪ የሂሳብ መዝገብ ረዳት"
+    },
+    "description": {
+      "en": "Help update daily income and expense records, file receipts, and prepare basic monthly summaries with the finance officer.",
+      "am": "የዕለት ገቢና ወጪ መዝገቦችን ለማዘመን ያግዙ፣ ደረሰኞችን ያደራጁ፣ ከፋይናንስ ኃላፊውም ጋር መሠረታዊ ወርሃዊ ማጠቃለያዎችን ያዘጋጁ።"
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Hawassa Lakeside Traders"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "hawassa",
+        "addressCountry": "ET"
+      }
+    },
+    "jobLocationType": null,
+    "skills": ["bookkeeping", "data-entry", "computer-basics", "typing"],
+    "employmentType": "FULL_TIME",
+    "datePosted": "2026-11-06",
+    "validThrough": "2026-12-18",
+    "accommodations": ["assistive-tech-provided", "quiet-workspace", "flexible-hours"]
+  },
+  {
+    "@type": "JobPosting",
+    "identifier": "job-006",
+    "title": {
+      "en": "Sewing and Crafts Workshop Assistant",
+      "am": "የስፌትና የእጅ ሥራ ወርክሾፕ ረዳት"
+    },
+    "description": {
+      "en": "Measure and prepare fabric, assist with hand-sewn products, and help maintain an orderly shared workshop.",
+      "am": "ጨርቅ ይለኩና ያዘጋጁ፣ በእጅ የሚሰፉ ምርቶችን ያግዙ፣ የጋራ የሥራ ቦታውንም በሥርዓት እንዲቆይ ይርዱ።"
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Tigray Makers Collective"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "mekelle",
+        "addressCountry": "ET"
+      }
+    },
+    "jobLocationType": null,
+    "skills": ["sewing-crafts", "communication", "sales"],
+    "employmentType": "TEMPORARY",
+    "datePosted": "2026-11-05",
+    "validThrough": "2026-12-12",
+    "accommodations": ["step-free-access", "quiet-workspace", "written-instructions"]
+  },
+  {
+    "@type": "JobPosting",
+    "identifier": "job-007",
+    "title": {
+      "en": "Remote Graphic Design Assistant",
+      "am": "የርቀት ግራፊክ ዲዛይን ረዳት"
+    },
+    "description": {
+      "en": "Create simple social media graphics from supplied templates, label design files clearly, and respond to feedback in writing.",
+      "am": "ከተሰጡ አብነቶች በመነሳት ቀላል የማኅበራዊ ሚዲያ ምስሎችን ይፍጠሩ፣ የዲዛይን ፋይሎችን በግልጽ ይሰይሙ፣ ለአስተያየቶችም በጽሑፍ ምላሽ ይስጡ።"
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Enat Media Studio"
+    },
+    "jobLocationType": "TELECOMMUTE",
+    "skills": ["graphic-design", "computer-basics", "communication", "writing"],
+    "employmentType": "PART_TIME",
+    "datePosted": "2026-11-04",
+    "validThrough": "2026-12-22",
+    "accommodations": ["remote", "flexible-hours", "assistive-tech-provided", "written-instructions"]
+  },
+  {
+    "@type": "JobPosting",
+    "identifier": "job-008",
+    "title": {
+      "en": "Office Administration Assistant",
+      "am": "የቢሮ አስተዳደር ረዳት"
+    },
+    "description": {
+      "en": "Organize appointment records, prepare meeting materials, welcome visitors, and support routine office communication.",
+      "am": "የቀጠሮ መዝገቦችን ያደራጁ፣ የስብሰባ ዕቃዎችን ያዘጋጁ፣ ጎብኚዎችን ይቀበሉ፣ መደበኛ የቢሮ ግንኙነትንም ይደግፉ።"
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Dire Dawa Women and Youth Center"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "dire-dawa",
+        "addressCountry": "ET"
+      }
+    },
+    "jobLocationType": null,
+    "skills": ["administration", "communication", "computer-basics", "typing"],
+    "employmentType": "FULL_TIME",
+    "datePosted": "2026-11-03",
+    "validThrough": "2026-12-10",
+    "accommodations": ["step-free-access", "sign-language", "written-instructions", "quiet-workspace"]
+  },
+  {
+    "@type": "JobPosting",
+    "identifier": "job-009",
+    "title": {
+      "en": "Junior Website Content Assistant",
+      "am": "ጀማሪ የድር ጣቢያ ይዘት ረዳት"
+    },
+    "description": {
+      "en": "Update text and images on a small organization website, check links, and write clear notes about requested changes.",
+      "am": "በትንሽ ድርጅት ድር ጣቢያ ላይ ጽሑፎችንና ምስሎችን ያዘምኑ፣ አገናኞችን ይፈትሹ፣ የተጠየቁ ለውጦችንም በግልጽ ማስታወሻ ይጻፉ።"
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Horizon Learning Initiative"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "addis-ababa",
+        "addressCountry": "ET"
+      }
+    },
+    "jobLocationType": null,
+    "skills": ["web-development", "writing", "computer-basics", "typing"],
+    "employmentType": "INTERN",
+    "datePosted": "2026-11-02",
+    "validThrough": "2026-12-25",
+    "accommodations": ["screen-reader-friendly", "assistive-tech-provided", "flexible-hours"]
+  },
+  {
+    "@type": "JobPosting",
+    "identifier": "job-010",
+    "title": {
+      "en": "Community Shop Sales Assistant",
+      "am": "የማኅበረሰብ ሱቅ ሽያጭ ረዳት"
+    },
+    "description": {
+      "en": "Help customers find household goods, keep shelves organized, record sales, and share product questions with the shop manager.",
+      "am": "ደንበኞች የቤት ዕቃዎችን እንዲያገኙ ያግዙ፣ መደርደሪያዎችን ያደራጁ፣ ሽያጮችን ይመዝግቡ፣ የምርት ጥያቄዎችንም ለሱቅ ኃላፊው ያሳውቁ።"
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Adama Community Market"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "adama",
+        "addressCountry": "ET"
+      }
+    },
+    "jobLocationType": null,
+    "skills": ["sales", "customer-service", "communication", "bookkeeping"],
+    "employmentType": "PART_TIME",
+    "datePosted": "2026-11-01",
+    "validThrough": "2026-12-08",
+    "accommodations": ["step-free-access", "flexible-hours"]
+  }
+]
